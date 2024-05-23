@@ -1,0 +1,35 @@
+main:
+  project_name: arbit_dev
+  experiment_name: development
+  steps:
+    # - preprocess
+    # - train
+    # - evaluate
+preprocess:
+  output_path: data/processed
+train:
+  input_path: data/split
+  debug: False
+  debug_samples: 100
+  debug_num_train_epochs: 10
+  debug_batch_size: 10
+  batch_size: 32
+  lr: 2e-6
+  dropout_rate: 0.1
+  checkpoint_dir: "checkpoints"
+  llm: "acegpt"
+  log_freq: 100
+  num_train_epochs: 4
+  lora:
+    target_modules:
+      - query
+      - value
+      - key
+      - dense
+    r: 256
+    alpha: 512
+evaluate:
+  input_path: ""
+  output_path: ""
+
+transformers_checkpoint: ""

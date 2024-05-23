@@ -1,0 +1,2 @@
+def go(config):
+    pass
